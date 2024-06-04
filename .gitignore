@@ -1,0 +1,9 @@
+#directories
+bower_components/
+node_modules/
+saved_recordings/
+dist/
+
+#files
+*.tgz
+*.log

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "UTF-8">
+      <title>Video</title>
+   </head>
+   
+   <body>
+      <video autoplay></video>
+
+      <script>
+         function errorCallback(e) {
+            console.log('Error', e)
+         }
+
+         //获取用户摄像头
+         navigator.getUserMedia({video: true, audio: true}, (localMediaStream) => {
+            var video = document.querySelector('video')
+            video.srcObject = localMediaStream
+            //video.autoplay = true
+            video.onloadedmetadata = (e) => {
+              let canvas = this.$refs["canvas"]
+              video.play()
+              canvas.getContext("2d").drawImage(video, 0, 0, 1920, 1080)
+              video.pause()
+              canvas.toBlob((blobObj) => {
+                this.sendImage(blobObj) // 上传照片
+              })
+            }
+         }, errorCallback)
+      </script>
+   </body>
+</html>
