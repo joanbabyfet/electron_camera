@@ -6,7 +6,7 @@ const path = require('path')
 //屏蔽安全告警
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 
-//用户数据文件夹
+//设置用户数据文件夹
 app.setPath("userData", __dirname + "/saved_recordings")
 
 function createWindow() {
