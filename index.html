@@ -19,13 +19,6 @@
             video.srcObject = localMediaStream
             //video.autoplay = true
             video.onloadedmetadata = (e) => {
-              let canvas = this.$refs["canvas"]
-              video.play()
-              canvas.getContext("2d").drawImage(video, 0, 0, 1920, 1080)
-              video.pause()
-              canvas.toBlob((blobObj) => {
-                this.sendImage(blobObj) // 上传照片
-              })
             }
          }, errorCallback)
       </script>
